@@ -56,11 +56,11 @@ public class ComplexNumber {
     }
 
     public float mod() {
-        return (float) Math.sqrt(this.a + this.b * this.b);
+        return (float) Math.sqrt(this.a * this.a + this.b * this.b);
     }
 
     public static float mod(ComplexNumber z) {
-        return (float) Math.sqrt(z.a + z.b * z.b);
+        return (float) Math.sqrt(z.a * z.a + z.b * z.b);
     }
 
     public float angle() {
@@ -72,6 +72,11 @@ public class ComplexNumber {
     }
 
     public ComplexNumber toN(int n) {
-
+        float m = mod();
+        float angle = angle() * n;
+        return new ComplexNumber(
+                (float) (Math.pow(m, n) * Math.cos(angle)), 
+                (float) (Math.pow(m, n) * Math.sin(angle)));
     }
+    
 }
