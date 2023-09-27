@@ -1,12 +1,36 @@
 package tools;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestComlexNumber {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ComplexNumber a0 = new ComplexNumber(-1, 2);
+        TP02_P5();
+    }
+    
+    public static void TP02_P5() {
+        ComplexNumber a = new ComplexNumber((float)(2*Math.sqrt(3)), -2);
+        List<ComplexNumber> list = a.rootN(2);
+        printArrayList(list);
+        
+        ComplexNumber b = new ComplexNumber(0, -16);
+        list = b.rootN(4);
+        printArrayList(list);
+        
+    }
+    
+    public static void printArrayList(List<ComplexNumber> list){
+        for (ComplexNumber cn:list) {
+            System.out.println(cn.toCIS() + " ");
+        }
+    }
+    
+    public static void TP01_P1() {
+        /*ComplexNumber a0 = new ComplexNumber(-1, 2);
         ComplexNumber a1 = new ComplexNumber(4, 0);
         ComplexNumber a2 = new ComplexNumber(1, -1);
         ComplexNumber a3 = new ComplexNumber(2, -1);
@@ -19,14 +43,11 @@ public class TestComlexNumber {
         ComplexNumber suma = div0.add(div1);
         
         ComplexNumber TP01_P1 = a0_2.mult(suma);
-        System.out.println("TP01_P1: " + TP01_P1.getA() + " + " + TP01_P1.getB() + "i");
+        System.out.println("TP01_P1: " + TP01_P1.getA() + " + " + TP01_P1.getB() + "i");*/
         
-        /*ComplexNumber a0 = new ComplexNumber(2, 3);
-        ComplexNumber a1 = new ComplexNumber(2, 3);
+        ComplexNumber a0 = new ComplexNumber(0, -4);
         
-        ComplexNumber suma = a0div(a1);
-        
-        System.out.println("Multiplicación : " + suma.getA() + " + " + suma.getB() + "i");*/
+        System.out.println("Conjugado : " + a0.toN(5).getB() + "i");
     }
     
 }

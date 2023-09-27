@@ -91,15 +91,18 @@ public class ComplexNumber {
         
         for (int k = 0; k < n; k++) {
             roots.add(new ComplexNumber(
-                    (float) Math.pow(modZ, 1.0/n * Math.cos(angle + k * 2 * Math.PI)),
-                    (float) Math.pow(modZ, 1.0/n * Math.sin(angle + k * 2 * Math.PI))
+                    (float) (Math.pow(modZ, 1.0/n) * Math.cos((angle + k * 2 * Math.PI) / n)),
+                    (float) (Math.pow(modZ, 1.0/n) * Math.sin((angle + k * 2 * Math.PI) / n))
             ));
         }
         
         return roots;
     }
     
-    public void sis(){
+    public String toCIS() {
+        float modZ = mod();
+        float th = angle(); 
         
+        return modZ + " CIS " + th*180/Math.PI;
     }
 }
