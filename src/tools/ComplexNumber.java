@@ -1,5 +1,8 @@
 package tools;
 
+import java.awt.List;
+import java.util.ArrayList;
+
 public class ComplexNumber {
 
     private float a;
@@ -50,8 +53,9 @@ public class ComplexNumber {
     }
 
     public ComplexNumber div(ComplexNumber z) {
-        ComplexNumber aux = mult(conj(this));
+        ComplexNumber aux = mult(conj(z));
         float den = z.a * z.a + z.b * z.b;
+        
         return new ComplexNumber(aux.a / den, aux.b / den);
     }
 
@@ -79,4 +83,23 @@ public class ComplexNumber {
                 (float) (Math.pow(m, n) * Math.sin(angle)));
     }
     
+    public ArrayList<ComplexNumber> rootN(int n){
+        ArrayList<ComplexNumber> roots = new ArrayList();
+        
+        float modZ = mod();
+        float angle = angle();
+        
+        for (int k = 0; k < n; k++) {
+            roots.add(new ComplexNumber(
+                    (float) Math.pow(modZ, 1.0/n * Math.cos(angle + k * 2 * Math.PI)),
+                    (float) Math.pow(modZ, 1.0/n * Math.sin(angle + k * 2 * Math.PI))
+            ));
+        }
+        
+        return roots;
+    }
+    
+    public void sis(){
+        
+    }
 }
