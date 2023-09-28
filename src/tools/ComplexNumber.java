@@ -105,4 +105,11 @@ public class ComplexNumber {
         
         return modZ + " CIS " + th*180/Math.PI;
     }
+
+    @Override
+    public String toString() {
+        return "ComplexNumber{" + "a=" + a + ", b=" + b + '}';
+    }
+    
+    
 }
